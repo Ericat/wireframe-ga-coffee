@@ -1,0 +1,67 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/screen.css')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Raleway')
+    script(src='/js/jquery.min.js')
+    script(src='/js/bootstrap.min.js')
+    script(src='/js/knockout-3.2.0.js')
+
+  body
+    #header
+      span.pull-right.total(data-bind='visible: count() > 0, text: orderCount')
+    .container
+      #wrapper
+        .row
+          .col-md-10.col-md-offset-1
+            h1=message
+            .row
+              .col-md-10.col-md-offset-1
+                form
+                  .form-group
+                    label.label-lg(for='type', name='coffeeType') Type:
+                    .row.panel.panel-default
+                      .panel-body(data-bind="foreach: types")
+                        .col-md-4.press
+                          button(data-bind='text: $data, click: $parent.hasSelectedType, css: { active: $parent.selectedType() === $data }')
+                  .form-group
+                    label.label-lg(for='size', name='size') Size:
+                    .row.panel.panel-default
+                      .panel-body(data-bind="foreach: sizes")
+                        .col-md-4.press
+                          button(data-bind='text: $data, click: $parent.hasSelectedSize, css: { active: $parent.selectedSize() === $data }')
+                  .form-group
+                    label.label-lg(for='size', name='extra') Milk?
+                    a.btn.btn-default.btn-xs.btn-margin(data-bind='visible: showNoMilk, click: function() { selectedExtra(""); return true; }')
+                      |  No, thanks
+                    .row.panel.panel-default
+                      .panel-body(data-bind="foreach: extras")
+                        .col-md-4.press
+                          button(data-bind='text: $data, click: $parent.hasSelectedExtra, css: { active: $parent.selectedExtra() === $data }')
+                  .form-group
+                    .row.panel.panel-default
+                      .panel-body
+                        .col-md-12
+                          label.label-lg Your name:
+                          input.no-glow(data-bind='value: customerName, valueUpdate: "afterkeydown"', name='customerName', type='text')
+                  .row.row-summary(data-bind='visible: showOrderSummary')
+                    .col-md-12
+                      span 1x 
+                      span(data-bind='text: selectedSize')
+                      |&nbsp;
+                      span(data-bind='text: selectedType')
+                      |&nbsp;
+                      span(data-bind='text: selectedExtra')
+                      |&nbsp;
+                      span(data-bind='visible: selectedExtra') milk
+                      |&nbsp;
+                      span(data-bind='visible: customerName') for 
+                      span(data-bind='text: customerName, valueUpdate: "afterkeydown"')
+                  .row.row-buttons
+                    .col-md-12
+                      a.btn.btn-success.btn-lg(data-bind='click: hasClickedAdd') Add to order
+                      a.btn.btn-warning.btn-lg.pull-right(data-bind='visible: showNext, click: hasClickedNext') Next order
+
+    script(src='/js/app.js')
