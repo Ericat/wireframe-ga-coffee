@@ -52,8 +52,8 @@ OrderViewModel.prototype.hasClickedNext = function() {
 OrderViewModel.prototype.resetForm = function() {
   this.showNext(false);
   this.showOrderSummary(false);
-  this.count(0);
   this.customerName('');
+  document.querySelector('svg#tick').style.display = 'none';
 }
 
 var orderModel = new OrderViewModel();

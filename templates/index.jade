@@ -8,12 +8,17 @@ html
     script(src='/js/jquery.min.js')
     script(src='/js/bootstrap.min.js')
     script(src='/js/knockout-3.2.0.js')
+    script(src='/js/snap.svg-min.js')
 
   body
     #header
+      img.pull-right.coffee-cup(src='/img/coffee-cup.png')
+      span.pull-right.tick
+        include tick.svg
       span.pull-right.total(data-bind='visible: count() > 0, text: orderCount')
     .container
       #wrapper
+        //- include tick2.svg
         .row
           .col-md-10.col-md-offset-1
             h1=message
@@ -61,7 +66,8 @@ html
                       span(data-bind='text: customerName, valueUpdate: "afterkeydown"')
                   .row.row-buttons
                     .col-md-12
-                      a.btn.btn-success.btn-lg(data-bind='click: hasClickedAdd') Add to order
+                      a#btn-add.btn.btn-success.btn-lg(data-bind='click: hasClickedAdd') Add to order
                       a.btn.btn-warning.btn-lg.pull-right(data-bind='visible: showNext, click: hasClickedNext') Next order
 
     script(src='/js/app.js')
+    script(src='/js/tick.js')

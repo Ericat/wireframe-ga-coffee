@@ -45,6 +45,10 @@ label.label-lg {
   margin: 0 0 10px 10px;
 }
 
+img.coffee-cup {
+  height: 65px;
+}
+
 /*Buttons styling "borrowed" http://callmenick.com/tutorial-demos/stylish-css-buttons/*/
 button {
   display: inline-block;
@@ -78,6 +82,17 @@ button:focus {
 }
 
 .total {
-  margin: 0px 40px 0 0;
   font-size: 45px;
+}
+
+#tick {
+  height: 50px;
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  z-index: 1;
+}
+
+svg#tick {
+  display: none;
 }
