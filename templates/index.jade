@@ -27,13 +27,13 @@ html
                 label.label-lg(for='type', name='coffeeType') Type:
                 .row.panel.panel-default
                   .panel-body(data-bind="foreach: types")
-                    .col-md-4.press
+                    .col-sm-4.press
                       button(data-bind='text: $data, click: $parent.hasSelectedType, css: { active: $parent.selectedType() === $data }')
               .form-group
                 label.label-lg(for='size', name='size') Size:
                 .row.panel.panel-default
                   .panel-body(data-bind="foreach: sizes")
-                    .col-md-4.press
+                    .col-sm-4.press
                       button(data-bind='text: $data, click: $parent.hasSelectedSize, css: { active: $parent.selectedSize() === $data }')
               .form-group
                 label.label-lg(for='size', name='extra') Milk?
@@ -41,7 +41,7 @@ html
                   |  No, thanks
                 .row.panel.panel-default
                   .panel-body(data-bind="foreach: extras")
-                    .col-md-4.press
+                    .col-sm-4.press
                       button(data-bind='text: $data, click: $parent.hasSelectedExtra, css: { active: $parent.selectedExtra() === $data }')
               .form-group
                 .row.panel.panel-default
