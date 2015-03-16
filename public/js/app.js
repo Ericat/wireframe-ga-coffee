@@ -3,7 +3,6 @@ $(function() {
 function OrderViewModel() {
   var self = this;
 
-  // this.orderSummary = ko.observable('');
   this.types = ko.observableArray(['Black', 'Latte', 'Espresso']);
   this.sizes = ko.observableArray(['S', 'M', 'L']);
   this.extras = ko.observableArray(['Whole', 'Skim', 'Soya']);
